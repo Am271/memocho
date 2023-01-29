@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  memocho-db:
+    image: mongo:4.4
+    restart: always
+    volumes:
+      - /home/pi/memocho-db:/data/db
+
+  memocho:
+    build:
+      context: .
+      args:
+        PORT: 5000
+        MONGO_CSTRING: "mongodb://memocho-db:27017/bin-store"
+    ports:
+      - "5000:5000"
