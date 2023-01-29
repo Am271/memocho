@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memocho-deployment
+  labels:
+    app: memocho
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: memocho
+  template:
+    metadata:
+      labels:
+        app: memocho
+    spec:
+      containers:
+      - name: memocho
+        image: app-server:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
