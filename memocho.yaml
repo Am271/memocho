@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: memocho
-        image: app-server:latest
-        imagePullPolicy: Never
+        image: am271/memocho:latest
+        # imagePullPolicy: Never
         ports:
         - containerPort: 5000
