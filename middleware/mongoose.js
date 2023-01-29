@@ -7,7 +7,9 @@ module.exports = () => {
     mongoose.connect(
         connectionString,
         {useNewUrlParser: true}
-    );
+    ).then(() => {
+        console.log("Successfully connected to database");
+    });
 
     const models = require("../model")(mongoose);
     return (req, res, next) => {
